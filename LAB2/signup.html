@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&family=JetBrains+Mono:wght@800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+  <link href="main.css" type="text/css" rel="stylesheet">
+  <title>Title</title>
+</head>
+<body>
+  <header>
+    <h1 class="title">Welcome to INTERNET-PROGRAMMING SHOP</h1>
+    <a class="button" href="login.html">Login</a> <a class="button current">Signup</a>
+  </header>
+  <hr>
+  <div class="form">
+    <h2>Personal Info (required)</h2>
+    <form>
+      <label for="name">Name: </label>
+      <input type="text" name="name" placeholder="input name here" required> <br>
+
+      <label for="birth">Date of Birth</label>
+      <input type="date" placeholder="year/month/day" required> <br>
+
+      <label for="grade">Grade: </label>
+      <input type="number" min="1" max="4" value="1"> <br>
+
+      <label for="phone">Phone Number: </label>
+      <input type="tel" pattern="\d{3}-\d{4}-\d{4}" placeholder="###-####-####" required> <br>
+
+      <label for="userId">User ID: </label>
+      <input type="text" maxlength="8" placeholder="8 character maximum" required> <br>
+
+      <label for="password">Password: </label>
+      <input type="password" maxlength="10" placeholder="10 character maximum" required> <br>
+
+      <label for="confirmPassword">Confirm Password: </label>
+      <input type="password" maxlength="10" placeholder="Re-Enter password" required> <br>
+
+      <button id="signup" class="formButton" type="submit">Signup</button>
+      <button id="cancel" class="formButton" type="reset">Cancel</button>
+    </form>
+    <div>
+</body>
+</html>
