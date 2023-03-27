@@ -18,11 +18,11 @@
   <div class="form">
     <h2>Account Info (required)</h2>
     <form>
-      <label for="userId">User ID: </label>
-      <input type="text" maxlength="8" placeholder="User ID" required> <br>
+      <label for="userId" class="label">User ID: </label>
+      <input id="userId" type="text" maxlength="8" placeholder="User ID" autofocus autocomplete="on" required> <br>
 
-      <label for="password">Password: </label>
-      <input type="password" maxlength="10" placeholder="Password" required> <br>
+      <label for="password" class="label">Password: </label>
+      <input id="password" type="password" maxlength="10" placeholder="Password" required> <br>
 
       <button id="login" class="formButton" type="submit">Login</button>
       <span id="prompt">Not yet registered?</span>
