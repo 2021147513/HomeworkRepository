@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&family=JetBrains+Mono:wght@800&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+  <link href="main.css" type="text/css" rel="stylesheet">
+  <title>Assignment Three</title>
+</head>
+<body>
+  <header>
+    <h1 class="title">Welcome to INTERNET-PROGRAMMING SHOP</h1>
+    <a class="button" href="index.html">Index</a>
+    <a class="button current">Login</a>
+    <a class="button" href="signup.html">Signup</a>
+  </header>
+  <hr>
+  <div class="form">
+    <h2>Account Info (required)</h2>
+    <form>
+      <label for="userId" class="label">User ID: </label>
+      <input id="userId" type="text" maxlength="8" placeholder="User ID" autofocus autocomplete="on" required> <br>
+
+      <label for="password" class="label">Password: </label>
+      <input id="password" type="password" maxlength="10" placeholder="Password" required> <br>
+
+      <button id="login" class="formButton" type="submit">Login</button>
+      <span id="prompt">Not yet registered?</span>
+      <span id="fakeButton"><a href="signup.html">Signup</a></span>
+    </form>
+  </div>
+
+</body>
+</html>
