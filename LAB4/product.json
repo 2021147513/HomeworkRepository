@@ -1,0 +1,82 @@
+{
+  "books": [
+    {
+      "title": "Modern CSS",
+      "category": "CSS",
+      "price": "$12",
+      "src": "css1.jpg"
+    },
+    {
+      "title": "Object Oriented Programming and Java",
+      "category": "Java",
+      "price": "$22",
+      "src": "java4.jpeg"
+    },
+    {
+      "title": "Beginning CSS Web Development",
+      "category": "CSS",
+      "price": "$17",
+      "src": "css3.jpg"
+    },
+    {
+      "title": "JavaScript For Impatient Programmers",
+      "category": "JavaScript",
+      "price": "$24",
+      "src": "js3.jpg"
+    },
+    {
+      "title": "CSS for beginners",
+      "category": "CSS",
+      "price": "$20",
+      "src": "css2.jpg"
+    },
+    {
+      "title": "Think Java",
+      "category": "Java",
+      "price": "$18",
+      "src": "java3.jpg"
+    },
+    {
+      "title": "CSS Mine",
+      "category": "CSS",
+      "price": "$18",
+      "src": "css4.jpeg"
+    },
+    {
+      "title": "The Truth about HTML5",
+      "category": "HTML",
+      "price": "$21",
+      "src": "html1.jpg"
+    },
+    {
+      "title": "HTML: The missing manual",
+      "category": "HTML",
+      "price": "$24",
+      "src": "html2.jpg"
+    },
+    {
+      "title": "Effective Java",
+      "category": "Java",
+      "price": "$28",
+      "src": "java1.jpeg"
+    },
+    {
+      "title": "JavaScript: The Good Parts",
+      "category": "JavaScript",
+      "price": "$12",
+      "src": "js1.jpg"
+    },
+    {
+      "title": "The Java Module System",
+      "category": "Java",
+      "price": "$32",
+      "src": "java2.png"
+    },
+    {
+      "title": "Programming JavaScript Applications",
+      "category": "JavaScript",
+      "price": "$21",
+      "src": "js2.jpg"
+    }
+  ]
+}

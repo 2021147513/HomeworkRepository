@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Cardo:wght@700&family=JetBrains+Mono:wght@800&family=Press+Start+2P&display=swap"
+          rel="stylesheet">
+  <link href="main.css" type="text/css" rel="stylesheet">
+  <title>Assignment Four</title>
+  <script>
+      window.onload = async function () {
+          let allBooks = await fetchBooks();
+          let renderList = JSON.parse(JSON.stringify(allBooks));
+          let length = renderList.length;
+          let loadAll = false;
+          let idx = length > 3 ? 3 : length - 1;
+          const container = document.getElementById('products');
+          loadBook(0, idx);
+          idx += 1;
+
+          container.addEventListener('scroll', function () {
+              if (!loadAll && container.scrollHeight - container.scrollTop <= container.clientHeight + 20) {
+                  if (idx < length - 1) {
+                      loadBook(idx, idx + 1);
+                      idx += 2;
+                  } else if (idx === length - 1) {
+                      loadBook(length - 1, length - 1);
+                      loadAll = true;
+                  } else {
+                      loadAll = true;
+                  }
+              }
+          });
+
+          document.querySelector('form').addEventListener('submit', function (e) {
+              e.preventDefault();
+              const category = document.getElementById('category').value;
+              const searchTerm = document.getElementById('textFilter').value;
+              const sort = document.getElementById('sort').value;
+              renderList = JSON.parse(JSON.stringify(allBooks));
+              if (category === "HTML") {
+                  renderList = renderList.filter(book => book.category === "HTML");
+              } else if (category === "CSS") {
+                  renderList = renderList.filter(book => book.category === "CSS");
+              } else if (category === "JavaScript") {
+                  renderList = renderList.filter(book => book.category === "JavaScript");
+              } else if (category === "Java") {
+                  renderList = renderList.filter(book => book.category === "Java");
+              }
+              renderList = renderList.filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase()));
+              if (sort === "alphabet") {
+                  renderList.sort((a, b) => a.title.localeCompare(b.title));
+              } else if (sort === "category") {
+                  renderList.sort((a, b) => a.category.localeCompare(b.category));
+              }
+              init();
+          })
+
+          function init() {
+              container.innerHTML = '';
+              loadAll = false;
+              length = renderList.length;
+              idx = length > 3 ? 3 : length - 1;
+              loadBook(0, idx);
+              idx += 1;
+          }
+
+          function loadBook(init, fin) {
+              console.log(`loading ${init}, to ${fin}`);
+              insertRender(renderList.slice(init, fin + 1).map(x => JSON.parse(JSON.stringify(x))));
+          }
+
+          function insertRender(list) {
+              for (let ele of list) {
+                  const productElement = document.createElement("div");
+                  const bookCoverElement = document.createElement("img");
+                  const infoElement = document.createElement("div");
+                  const promptClick = document.createElement("p");
+                  promptClick.textContent = "Click to see more";
+                  infoElement.innerHTML = ele.title + '<br>' + ele.price;
+                  infoElement.classList.add("book-info");
+                  bookCoverElement.src = "image/".concat(ele.src);
+
+                  productElement.appendChild(bookCoverElement);
+                  productElement.appendChild(infoElement);
+                  productElement.appendChild(promptClick);
+                  productElement.classList.add("book")
+
+                  productElement.addEventListener('click', function() {
+                      if (bookCoverElement.classList.contains('dark')) {
+                          bookCoverElement.classList.remove('dark');
+                          infoElement.style.display = 'none';
+                      } else {
+                          bookCoverElement.classList.add('dark');
+                          infoElement.style.display = 'block';
+                      }
+                  });
+                  container.appendChild(productElement);
+              }
+          }
+
+          async function fetchBooks() {
+              const resp = await fetch('product.json');
+              const json = await resp.json();
+              return json.books;
+          }
+      };
+  </script>
+</head>
+
+<body>
+  <section class="flexCol">
+    <h1 class="indexTitle">Welcome to Internet Programming Shop</h1>
+    <header class="heading center borderBot">
+      <span><a class="button current">Index</a></span>
+      <a class="button" href="login.html">Login</a>
+      <a class="button" href="signup.html">Signup</a>
+    </header>
+  </section>
+  <h2>Product</h2><br>
+  <div class="bodyPart">
+    <form style="width: 180px">
+      <label for="category">Choose a category:</label> <br>
+      <select id="category" style="width: 100%">
+        <option>All</option>
+        <option>HTML</option>
+        <option>Java</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+      </select> <br>
+      <label for="textFilter">Enter search term:</label> <br>
+      <input id="textFilter" type="text" style="width: 100%"> <br>
+      <label>Choose a sort:</label> <br>
+      <select id="sort" style="width: 100%">
+        <option>none</option>
+        <option>alphabet</option>
+        <option>category</option>
+      </select> <br>
+      <input type="submit" value="Filter results">
+    </form>
+    <div id="products" class="bookCovers"></div>
+  </div>
+</body>
+
+</html>
